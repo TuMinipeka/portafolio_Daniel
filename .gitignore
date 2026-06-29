@@ -1,0 +1,14 @@
+# Secretos — nunca subir al repo
+.env
+.env.local
+.env.*.local
+
+# Sistema
+.DS_Store
+Thumbs.db
+
+# Editores
+.vscode/settings.json
+.idea/
+*.swp
+*.swo

@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Daniel Mayorga — Frontend Developer especializado en interfaces inmersivas, animaciones GSAP y experiencias web de alto impacto.">
+  <meta name="theme-color" content="#050510">
+  <title>Daniel Mayorga · Frontend Developer</title>
+
+  <!-- Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body class="is-loading">
+
+  <!-- SCAN LINE -->
+  <div class="scan-line" aria-hidden="true"></div>
+
+  <!-- LOADER -->
+  <div id="loader" aria-hidden="true">
+    <div class="loader-inner">
+      <div class="loader-logo">DM<span class="accent">.</span></div>
+      <div class="loader-bar-wrap">
+        <div class="loader-bar"></div>
+      </div>
+      <span class="loader-pct">0%</span>
+    </div>
+  </div>
+
+  <!-- CURSOR -->
+  <div class="cursor-outer" aria-hidden="true"></div>
+  <div class="cursor-inner" aria-hidden="true"></div>
+
+  <!-- MOBILE NAV OVERLAY -->
+  <div class="nav-mobile" id="navMobile" aria-hidden="true">
+    <button class="nav-mobile-close" id="navMobileClose" aria-label="Cerrar menú">
+      <i class="fas fa-times"></i>
+    </button>
+    <nav>
+      <a href="#about" class="nav-mobile-link">01. <span>Sobre mí</span></a>
+      <a href="#skills" class="nav-mobile-link">02. <span>Skills</span></a>
+      <a href="#projects" class="nav-mobile-link">03. <span>Proyectos</span></a>
+      <a href="#experience" class="nav-mobile-link">04. <span>Experiencia</span></a>
+      <a href="#contact" class="nav-mobile-link">05. <span>Contacto</span></a>
+    </nav>
+    <a href="#" class="btn btn-primary" style="margin-top:2rem">Descargar CV</a>
+  </div>
+
+  <!-- NAVBAR -->
+  <header id="navbar">
+    <div class="nav-container">
+      <a href="#hero" class="nav-logo">DM<span class="accent">.</span></a>
+      <nav class="nav-links">
+        <a href="#about">Sobre mí</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Proyectos</a>
+        <a href="#experience">Experiencia</a>
+        <a href="#contact">Contacto</a>
+      </nav>
+      <div class="nav-right">
+        <a href="#" class="btn btn-primary nav-cta">CV <i class="fas fa-download"></i></a>
+        <button class="hamburger" id="hamburger" aria-label="Abrir menú">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+    <div class="nav-progress" id="navProgress"></div>
+  </header>
+
+  <!-- ============================================================
+       HERO
+       ============================================================ -->
+  <section id="hero">
+    <canvas id="particles-canvas" aria-hidden="true"></canvas>
+    <div class="hero-grid" aria-hidden="true"></div>
+
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="badge-pulse"></span>
+        Disponible para proyectos
+      </div>
+
+      <h1 class="hero-name glitch" data-text="Daniel Mayorga">Daniel Mayorga</h1>
+
+      <div class="hero-role" aria-live="polite">
+        <span class="role-bracket">{' </span><span id="typewriter"></span><span class="role-bracket"> '}</span>
+      </div>
+
+      <p class="hero-desc">
+        Creo experiencias web inmersivas que fusionan diseño y tecnología.
+        Especialista en animaciones GSAP, React y arquitecturas de alto rendimiento.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#projects" class="btn btn-primary magnetic">
+          Ver Proyectos
+          <i class="fas fa-arrow-right"></i>
+        </a>
+        <a href="#contact" class="btn btn-ghost magnetic">
+          Hablemos
+        </a>
+      </div>
+
+      <div class="hero-stats" aria-label="Estadísticas">
+        <div class="stat">
+          <span class="stat-num" data-target="3">0</span><span class="stat-plus">+</span>
+          <span class="stat-label">Años exp.</span>
+        </div>
+        <div class="stat-sep"></div>
+        <div class="stat">
+          <span class="stat-num" data-target="20">0</span><span class="stat-plus">+</span>
+          <span class="stat-label">Proyectos</span>
+        </div>
+        <div class="stat-sep"></div>
+        <div class="stat">
+          <span class="stat-num" data-target="15">0</span><span class="stat-plus">+</span>
+          <span class="stat-label">Tecnologías</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-scroll" aria-hidden="true">
+      <div class="scroll-mouse"><div class="scroll-wheel"></div></div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       ABOUT
+       ============================================================ -->
+  <section id="about">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">// 01. sobre mí</span>
+        <h2 class="section-title">Quién <span class="gradient-text">Soy</span></h2>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-visual">
+          <div class="avatar-frame">
+            <div class="avatar-art">
+              <div class="avatar-bg-glow"></div>
+              <span class="avatar-letters">DM</span>
+              <div class="avatar-scan-line"></div>
+              <div class="avatar-corners"></div>
+            </div>
+          </div>
+          <div class="orbit-system" aria-hidden="true">
+            <div class="orbit ring-a"></div>
+            <div class="orbit ring-b"></div>
+            <div class="orbit-node node-1"></div>
+            <div class="orbit-node node-2"></div>
+            <div class="orbit-node node-3"></div>
+          </div>
+        </div>
+
+        <div class="about-content">
+          <p class="about-text">
+            Soy un <strong>Frontend Developer</strong> apasionado por construir interfaces que van
+            más allá de lo visual. Combino código limpio con animaciones precisas para crear
+            experiencias que impactan y convierten.
+          </p>
+          <p class="about-text">
+            Me especializo en el ecosistema <strong>JavaScript moderno</strong> — React, TypeScript,
+            GSAP — con un ojo puesto siempre en la performance y la accesibilidad.
+            Cada línea de código es una decisión de diseño.
+          </p>
+
+          <div class="about-chips">
+            <span class="chip">React</span>
+            <span class="chip">TypeScript</span>
+            <span class="chip">GSAP</span>
+            <span class="chip">Next.js</span>
+            <span class="chip">Node.js</span>
+            <span class="chip">UI/UX</span>
+            <span class="chip">Figma</span>
+            <span class="chip">Performance</span>
+          </div>
+
+          <div class="about-actions">
+            <a href="#" class="btn btn-primary magnetic">
+              Descargar CV <i class="fas fa-download"></i>
+            </a>
+            <a href="#contact" class="btn btn-ghost magnetic">Hablemos</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SKILLS
+       ============================================================ -->
+  <section id="skills">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">// 02. habilidades</span>
+        <h2 class="section-title">Mi <span class="gradient-text">Arsenal</span></h2>
+      </div>
+
+      <div class="skills-grid">
+        <div class="skill-card">
+          <div class="skill-card-head">
+            <div class="skill-icon"><i class="fas fa-code"></i></div>
+            <h3>Frontend</h3>
+          </div>
+          <ul class="skill-list">
+            <li class="skill-item">
+              <div class="skill-meta"><span>React / Next.js</span><span class="skill-pct">90%</span></div>
+              <div class="skill-bar"><div class="skill-fill" data-w="90"></div></div>
+            </li>
+            <li class="skill-item">
+              <div class="skill-meta"><span>TypeScript</span><span class="skill-pct">85%</span></div>
+              <div class="skill-bar"><div class="skill-fill" data-w="85"></div></div>
+            </li>
+            <li class="skill-item">
+              <div class="skill-meta"><span>HTML5 / CSS3</span><span class="skill-pct">95%</span></div>
+              <div class="skill-bar"><div class="skill-fill" data-w="95"></div></div>
+            </li>
+            <li class="skill-item">
+              <div class="skill-meta"><span>GSAP / Animaciones</span><span class="skill-pct">88%</span></div>
+              <div class="skill-bar"><div class="skill-fill" data-w="88"></div></div>
+            </li>
+            <li class="skill-item">
+              <div class="skill-meta"><span>Three.js / WebGL</span><span class="skill-pct">68%</span></div>
+              <div class="skill-bar"><div class="skill-fill" data-w="68"></div></div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-card-head">
+            <div class="skill-icon"><i class="fas fa-server"></i></div>
+            <h3>Backend & Data</h3>
+          </div>
+          <ul class="skill-list">
+            <li class="skill-item">
+              <div class="skill-meta"><span>Node.js / Express</span><span class="skill-pct">80%</span></div>
+              <div class="skill-bar"><div class="skill-fill" data-w="80"></div></div>
+            </li>
+            <li class="skill-item">
+              <div class="skill-meta"><span>PostgreSQL / MongoDB</span><span class="skill-pct">75%</span></div>
+              <div class="skill-bar"><div class="skill-fill" data-w="75"></div></div>
+            </li>
+            <li class="skill-item">
+              <div class="skill-meta"><span>REST APIs / GraphQL</span><span class="skill-pct">82%</span></div>
+              <div class="skill-bar"><div class="skill-fill" data-w="82"></div></div>
+            </li>
+            <li class="skill-item">
+              <div class="skill-meta"><span>Docker / CI/CD</span><span class="skill-pct">65%</span></div>
+              <div class="skill-bar"><div class="skill-fill" data-w="65"></div></div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-card-head">
+            <div class="skill-icon"><i class="fas fa-tools"></i></div>
+            <h3>Herramientas</h3>
+          </div>
+          <ul class="skill-list">
+            <li class="skill-item">
+              <div class="skill-meta"><span>Git / GitHub</span><span class="skill-pct">92%</span></div>
+              <div class="skill-bar"><div class="skill-fill" data-w="92"></div></div>
+            </li>
+            <li class="skill-item">
+              <div class="skill-meta"><span>Figma / Design</span><span class="skill-pct">78%</span></div>
+              <div class="skill-bar"><div class="skill-fill" data-w="78"></div></div>
+            </li>
+            <li class="skill-item">
+              <div class="skill-meta"><span>Vite / Webpack</span><span class="skill-pct">83%</span></div>
+              <div class="skill-bar"><div class="skill-fill" data-w="83"></div></div>
+            </li>
+            <li class="skill-item">
+              <div class="skill-meta"><span>Jest / Cypress</span><span class="skill-pct">70%</span></div>
+              <div class="skill-bar"><div class="skill-fill" data-w="70"></div></div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Marquee -->
+      <div class="marquee-wrap">
+        <div class="marquee-track" aria-hidden="true">
+          <span>React</span><span>Next.js</span><span>TypeScript</span>
+          <span>GSAP</span><span>Three.js</span><span>Node.js</span>
+          <span>PostgreSQL</span><span>Docker</span><span>Figma</span>
+          <span>GraphQL</span><span>Tailwind</span><span>Vite</span>
+          <span>React</span><span>Next.js</span><span>TypeScript</span>
+          <span>GSAP</span><span>Three.js</span><span>Node.js</span>
+          <span>PostgreSQL</span><span>Docker</span><span>Figma</span>
+          <span>GraphQL</span><span>Tailwind</span><span>Vite</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       PROJECTS
+       ============================================================ -->
+  <section id="projects">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">// 03. proyectos</span>
+        <h2 class="section-title">Trabajo <span class="gradient-text">Destacado</span></h2>
+      </div>
+
+      <div class="filter-bar" role="group" aria-label="Filtrar proyectos">
+        <button class="filter-btn active" data-filter="all">Todos</button>
+        <button class="filter-btn" data-filter="web">Web App</button>
+        <button class="filter-btn" data-filter="mobile">Mobile</button>
+        <button class="filter-btn" data-filter="ui">UI/UX</button>
+      </div>
+
+      <div class="projects-grid">
+
+        <article class="proj-card tilt" data-cat="web">
+          <div class="proj-img" style="--g:linear-gradient(135deg,#667eea,#764ba2)">
+            <div class="proj-overlay">
+              <span class="proj-expand-hint"><i class="fas fa-expand-alt"></i> Ver detalles</span>
+              <div class="proj-links">
+                <a href="#" class="proj-link" aria-label="Ver demo" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i></a>
+                <a href="#" class="proj-link" aria-label="Ver código" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="proj-body">
+            <span class="proj-num">01</span>
+            <h3 class="proj-title">E-Commerce Platform</h3>
+            <p class="proj-desc">Plataforma de comercio con carrito, Stripe payments y panel de admin en tiempo real.</p>
+            <div class="proj-stack">
+              <span>React</span><span>Node.js</span><span>PostgreSQL</span><span>Stripe</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="proj-card tilt" data-cat="web">
+          <div class="proj-img" style="--g:linear-gradient(135deg,#f093fb,#f5576c)">
+            <div class="proj-overlay">
+              <span class="proj-expand-hint"><i class="fas fa-expand-alt"></i> Ver detalles</span>
+              <div class="proj-links">
+                <a href="#" class="proj-link" aria-label="Ver demo" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i></a>
+                <a href="#" class="proj-link" aria-label="Ver código" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="proj-body">
+            <span class="proj-num">02</span>
+            <h3 class="proj-title">Analytics Dashboard</h3>
+            <p class="proj-desc">Dashboard interactivo con visualizaciones D3.js, reportes exportables y datos en tiempo real.</p>
+            <div class="proj-stack">
+              <span>Next.js</span><span>TypeScript</span><span>D3.js</span><span>WebSocket</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="proj-card tilt" data-cat="mobile">
+          <div class="proj-img" style="--g:linear-gradient(135deg,#4facfe,#00f2fe)">
+            <div class="proj-overlay">
+              <span class="proj-expand-hint"><i class="fas fa-expand-alt"></i> Ver detalles</span>
+              <div class="proj-links">
+                <a href="#" class="proj-link" aria-label="Ver demo" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i></a>
+                <a href="#" class="proj-link" aria-label="Ver código" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="proj-body">
+            <span class="proj-num">03</span>
+            <h3 class="proj-title">Task Manager App</h3>
+            <p class="proj-desc">App móvil con drag-and-drop, notificaciones push y sincronización offline-first.</p>
+            <div class="proj-stack">
+              <span>React Native</span><span>Firebase</span><span>Redux</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="proj-card tilt" data-cat="ui">
+          <div class="proj-img" style="--g:linear-gradient(135deg,#43e97b,#38f9d7)">
+            <div class="proj-overlay">
+              <span class="proj-expand-hint"><i class="fas fa-expand-alt"></i> Ver detalles</span>
+              <div class="proj-links">
+                <a href="#" class="proj-link" aria-label="Ver demo" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i></a>
+                <a href="#" class="proj-link" aria-label="Ver código" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="proj-body">
+            <span class="proj-num">04</span>
+            <h3 class="proj-title">Design System UI</h3>
+            <p class="proj-desc">Sistema de diseño con 60+ componentes accesibles, tema oscuro/claro y documentación en Storybook.</p>
+            <div class="proj-stack">
+              <span>Storybook</span><span>SCSS</span><span>Figma</span><span>A11y</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="proj-card tilt" data-cat="web">
+          <div class="proj-img" style="--g:linear-gradient(135deg,#fa709a,#fee140)">
+            <div class="proj-overlay">
+              <span class="proj-expand-hint"><i class="fas fa-expand-alt"></i> Ver detalles</span>
+              <div class="proj-links">
+                <a href="#" class="proj-link" aria-label="Ver demo" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i></a>
+                <a href="#" class="proj-link" aria-label="Ver código" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="proj-body">
+            <span class="proj-num">05</span>
+            <h3 class="proj-title">SaaS Landing Page</h3>
+            <p class="proj-desc">Landing page con animaciones GSAP avanzadas. Lighthouse 100/100 en performance.</p>
+            <div class="proj-stack">
+              <span>HTML5</span><span>GSAP</span><span>CSS3</span><span>Vite</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="proj-card tilt" data-cat="mobile">
+          <div class="proj-img" style="--g:linear-gradient(135deg,#a18cd1,#fbc2eb)">
+            <div class="proj-overlay">
+              <span class="proj-expand-hint"><i class="fas fa-expand-alt"></i> Ver detalles</span>
+              <div class="proj-links">
+                <a href="#" class="proj-link" aria-label="Ver demo" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i></a>
+                <a href="#" class="proj-link" aria-label="Ver código" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="proj-body">
+            <span class="proj-num">06</span>
+            <h3 class="proj-title">Crypto Tracker</h3>
+            <p class="proj-desc">App de seguimiento de criptos con alertas de precio, gráficos candlestick y portfolio.</p>
+            <div class="proj-stack">
+              <span>Vue.js</span><span>Chart.js</span><span>CoinGecko API</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       EXPERIENCE
+       ============================================================ -->
+  <section id="experience">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">// 04. experiencia</span>
+        <h2 class="section-title">Mi <span class="gradient-text">Trayectoria</span></h2>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-axis"></div>
+
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-card tl-right">
+            <span class="tl-date">2023 — Presente</span>
+            <h3 class="tl-role">Frontend Developer Senior</h3>
+            <span class="tl-company"><i class="fas fa-building"></i> Tech Startup · Remoto</span>
+            <p class="tl-desc">Lideré rediseño completo de plataforma SaaS: –40% en TTI, sistema de design tokens y arquitectura micro-frontend con Nx.</p>
+            <div class="tl-tags"><span>React</span><span>Next.js</span><span>TypeScript</span><span>GSAP</span><span>Nx</span></div>
+          </div>
+        </div>
+
+        <div class="tl-item is-left">
+          <div class="tl-dot"></div>
+          <div class="tl-card tl-left">
+            <span class="tl-date">2021 — 2023</span>
+            <h3 class="tl-role">Frontend Developer</h3>
+            <span class="tl-company"><i class="fas fa-building"></i> Agencia Digital · Buenos Aires</span>
+            <p class="tl-desc">+15 proyectos para clientes de retail y fintech. Especialización en animaciones complejas y experiencias interactivas de alto impacto.</p>
+            <div class="tl-tags"><span>React</span><span>Node.js</span><span>SCSS</span><span>GSAP</span></div>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-card tl-right">
+            <span class="tl-date">2020 — 2021</span>
+            <h3 class="tl-role">Junior Frontend Developer</h3>
+            <span class="tl-company"><i class="fas fa-laptop"></i> Freelance</span>
+            <p class="tl-desc">Construcción de landing pages y e-commerce para PyMEs. Primeros proyectos profesionales con JavaScript vanilla y React.</p>
+            <div class="tl-tags"><span>HTML/CSS</span><span>JavaScript</span><span>WordPress</span></div>
+          </div>
+        </div>
+
+        <div class="tl-item is-left">
+          <div class="tl-dot"></div>
+          <div class="tl-card tl-left">
+            <span class="tl-date">2019 — 2020</span>
+            <h3 class="tl-role">Formación Técnica</h3>
+            <span class="tl-company"><i class="fas fa-graduation-cap"></i> Universidad · Argentina</span>
+            <p class="tl-desc">Técnico en Programación. Fundamentos de algoritmos, estructuras de datos y desarrollo web.</p>
+            <div class="tl-tags"><span>C++</span><span>Python</span><span>SQL</span></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CONTACT
+       ============================================================ -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">// 05. contacto</span>
+        <h2 class="section-title">Trabajemos <span class="gradient-text">Juntos</span></h2>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-info">
+          <p class="contact-intro">
+            ¿Tenés un proyecto ambicioso? Me encanta colaborar en ideas que desafíen los límites de lo posible en la web. Escribime y charlamos.
+          </p>
+
+          <div class="contact-links">
+            <a href="mailto:danieltomas0320@gmail.com" class="contact-link">
+              <div class="contact-link-icon"><i class="fas fa-envelope"></i></div>
+              <div>
+                <span class="cl-label">Email</span>
+                <span class="cl-value">danieltomas0320@gmail.com</span>
+              </div>
+            </a>
+            <a href="https://linkedin.com/in/daniel-tomas" class="contact-link" target="_blank" rel="noopener">
+              <div class="contact-link-icon"><i class="fab fa-linkedin"></i></div>
+              <div>
+                <span class="cl-label">LinkedIn</span>
+                <span class="cl-value">linkedin.com/in/daniel-tomas</span>
+              </div>
+            </a>
+            <a href="https://github.com/danieltomas" class="contact-link" target="_blank" rel="noopener">
+              <div class="contact-link-icon"><i class="fab fa-github"></i></div>
+              <div>
+                <span class="cl-label">GitHub</span>
+                <span class="cl-value">github.com/danieltomas</span>
+              </div>
+            </a>
+          </div>
+
+          <div class="socials">
+            <a href="#" class="social magnetic" aria-label="GitHub" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
+            <a href="#" class="social magnetic" aria-label="LinkedIn" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a>
+            <a href="#" class="social magnetic" aria-label="Twitter/X" target="_blank" rel="noopener"><i class="fab fa-x-twitter"></i></a>
+            <a href="#" class="social magnetic" aria-label="Instagram" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+
+        <form class="contact-form" id="contactForm" action="https://formspree.io/f/REPLACE_WITH_YOUR_ID" method="POST" novalidate>
+          <div class="form-row">
+            <div class="fg">
+              <label for="fname">Nombre</label>
+              <input type="text" id="fname" name="name" required autocomplete="name">
+            </div>
+            <div class="fg">
+              <label for="femail">Email</label>
+              <input type="email" id="femail" name="email" required autocomplete="email">
+            </div>
+          </div>
+          <div class="fg">
+            <label for="fsubject">Asunto</label>
+            <input type="text" id="fsubject" name="subject">
+          </div>
+          <div class="fg">
+            <label for="fmessage">Mensaje</label>
+            <textarea id="fmessage" name="message" rows="5" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-send magnetic">
+            <span class="btn-text">Enviar Mensaje</span>
+            <i class="fas fa-paper-plane"></i>
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer id="footer">
+    <div class="footer-inner">
+      <a href="#hero" class="footer-logo">DM<span class="accent">.</span></a>
+      <p class="footer-copy">
+        Diseñado &amp; construido por <strong>Daniel Mayorga</strong> · <span id="yr"></span>
+      </p>
+      <div class="footer-nav">
+        <a href="#about">Sobre mí</a>
+        <a href="#projects">Proyectos</a>
+        <a href="#contact">Contacto</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SECTION NAV DOTS -->
+  <nav class="s-nav" id="sNav" aria-label="Navegación de secciones">
+    <a href="#hero"       class="s-dot" data-label="Inicio"      aria-label="Inicio"></a>
+    <a href="#about"      class="s-dot" data-label="Sobre mí"    aria-label="Sobre mí"></a>
+    <a href="#skills"     class="s-dot" data-label="Skills"      aria-label="Skills"></a>
+    <a href="#projects"   class="s-dot" data-label="Proyectos"   aria-label="Proyectos"></a>
+    <a href="#experience" class="s-dot" data-label="Experiencia" aria-label="Experiencia"></a>
+    <a href="#contact"    class="s-dot" data-label="Contacto"    aria-label="Contacto"></a>
+  </nav>
+
+  <!-- BACK TO TOP -->
+  <button class="back-top" id="backTop" aria-label="Volver al inicio">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <!-- PROJECT MODAL -->
+  <div id="projModal" class="p-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="p-modal__backdrop" id="modalBackdrop"></div>
+    <div class="p-modal__box" role="document">
+      <button class="p-modal__close" id="modalClose" aria-label="Cerrar">
+        <i class="fas fa-times"></i>
+      </button>
+      <div class="p-modal__img" id="modalImg"></div>
+      <div class="p-modal__body">
+        <span class="p-modal__num" id="modalNum"></span>
+        <h2 class="p-modal__title" id="modalTitle"></h2>
+        <p class="p-modal__desc" id="modalDesc"></p>
+        <div class="p-modal__stack" id="modalStack"></div>
+        <div class="p-modal__actions">
+          <a href="#" class="btn btn-primary" id="modalDemo" target="_blank" rel="noopener">
+            Ver Demo <i class="fas fa-external-link-alt"></i>
+          </a>
+          <a href="#" class="btn btn-ghost" id="modalCode" target="_blank" rel="noopener">
+            Ver Código <i class="fab fa-github"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GSAP CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/TextPlugin.min.js" defer></script>
+  <script src="assets/js/main.js" defer></script>
+</body>
+</html>
