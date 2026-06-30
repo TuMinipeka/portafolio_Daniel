@@ -8,4 +8,5 @@
 
 Portafolio personal construido con HTML5, CSS3 y JavaScript vanilla. Incluye proyectos reales de automatización, inteligencia artificial, desarrollo web y base de datos.
 
-**Stack:** HTML5 · CSS3 · JavaScript · GSAP · Netlify
+**Stack:** HTML5 · CSS3 · JavaScript · GSAP · Netlify 
+ :D
