@@ -3,6 +3,10 @@
 .env.local
 .env.*.local
 
+# Archivos personales / fuente
+info-personal.md
+WhatsApp*
+
 # Sistema
 .DS_Store
 Thumbs.db

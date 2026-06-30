@@ -1,0 +1,97 @@
+/* =============================================
+   EXPERIENCE / TIMELINE
+   ============================================= */
+#experience {
+  background: linear-gradient(180deg, var(--bg) 0%, rgba(0,212,255,0.02) 50%, var(--bg) 100%);
+}
+.timeline {
+  position: relative;
+  max-width: 880px;
+  margin: 0 auto;
+}
+.timeline-axis {
+  position: absolute;
+  left: 50%; top: 0; bottom: 0;
+  width: 1px;
+  background: linear-gradient(180deg, transparent, var(--secondary) 20%, var(--primary) 80%, transparent);
+  transform: translateX(-50%);
+}
+.tl-item {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  padding-right: calc(50% + 44px);
+  margin-bottom: 56px;
+}
+.tl-item.is-left {
+  justify-content: flex-start;
+  padding-right: 0;
+  padding-left: calc(50% + 44px);
+}
+.tl-dot {
+  position: absolute;
+  left: 50%; top: 26px;
+  transform: translateX(-50%);
+  width: 14px; height: 14px;
+  background: var(--bg);
+  border: 2px solid var(--primary);
+  border-radius: 50%;
+  box-shadow: 0 0 16px var(--primary);
+  z-index: 1;
+}
+.tl-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--rl);
+  padding: 26px 30px;
+  max-width: 400px;
+  transition: var(--tr);
+}
+.tl-card:hover {
+  border-color: var(--border-h);
+  box-shadow: var(--glow-s);
+}
+.tl-date {
+  font-family: var(--font-m);
+  font-size: 0.72rem;
+  color: var(--primary);
+  letter-spacing: 1.5px;
+  display: block;
+  margin-bottom: 6px;
+}
+.tl-role {
+  font-family: var(--font-d);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 5px;
+  letter-spacing: 0.3px;
+}
+.tl-company {
+  font-size: 0.85rem;
+  color: var(--secondary);
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 12px;
+}
+.tl-desc {
+  font-size: 0.85rem;
+  color: var(--muted);
+  line-height: 1.7;
+  margin-bottom: 14px;
+}
+.tl-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+.tl-tags span {
+  padding: 3px 10px;
+  background: rgba(124,58,237,0.1);
+  border: 1px solid rgba(124,58,237,0.18);
+  border-radius: 100px;
+  font-family: var(--font-m);
+  font-size: 0.7rem;
+  color: var(--secondary);
+}

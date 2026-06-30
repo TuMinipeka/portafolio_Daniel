@@ -1,0 +1,133 @@
+/* =============================================
+   RESPONSIVE — TABLET (≤ 1024px)
+   ============================================= */
+@media (max-width: 1024px) {
+  .skills-grid   { grid-template-columns: repeat(2, 1fr); }
+  .projects-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .about-grid    { grid-template-columns: 1fr; gap: 48px; }
+  .about-visual  { order: -1; }
+  .contact-grid  { grid-template-columns: 1fr; gap: 48px; }
+
+  /* Último item solo en 2 cols → centrar */
+  .skills-grid   > .skill-card:last-child:nth-child(odd),
+  .projects-grid > .proj-card:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    width: calc(50% - 10px);
+    margin-inline: auto;
+  }
+}
+
+/* =============================================
+   RESPONSIVE — MOBILE (≤ 768px)
+   ============================================= */
+@media (max-width: 768px) {
+  :root { --sp: 80px; }
+
+  /* Cursor personalizado fuera */
+  .cursor-outer,
+  .cursor-inner { display: none; }
+  body { cursor: auto; }
+
+  /* Navbar */
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+
+  /* Grids → 1 columna */
+  .skills-grid   { grid-template-columns: 1fr; }
+  .projects-grid { grid-template-columns: 1fr; gap: 14px; }
+
+  /* Hero */
+  .hero-content { padding-top: 56px; }
+  .hero-stats   { gap: 20px; }
+  .hero-desc    { font-size: 0.95rem; }
+
+  /* Filter bar */
+  .filter-bar { gap: 7px; margin-bottom: 30px; }
+  .filter-btn { padding: 6px 15px; font-size: 0.82rem; }
+
+  /* Proyectos: en touch no hay hover, mostrar links siempre */
+  .proj-img    { height: 175px; }
+  .proj-overlay {
+    opacity: 1;
+    background: linear-gradient(to top, rgba(5,5,16,0.92) 0%, transparent 58%);
+    justify-content: flex-end;
+    padding-bottom: 14px;
+  }
+  .proj-expand-hint { display: none; }
+  .proj-link    { transform: translateY(0); }
+
+  /* About */
+  .about-grid   { gap: 32px; }
+  .avatar-frame { width: 260px; height: 310px; }
+
+  /* Section headers */
+  .section-header { margin-bottom: 44px; }
+
+  /* Timeline — single column */
+  .timeline-axis { left: 22px; }
+  .tl-item,
+  .tl-item.is-left {
+    justify-content: flex-start;
+    padding-right: 0;
+    padding-left: 56px;
+  }
+  .tl-dot  { left: 22px; }
+  .tl-card { max-width: 100%; padding: 20px 22px; }
+
+  /* Contact */
+  .contact-form { padding: 28px; }
+  .form-row     { grid-template-columns: 1fr; }
+
+  /* Footer */
+  .footer-inner { flex-direction: column; align-items: center; text-align: center; }
+}
+
+/* =============================================
+   RESPONSIVE — SMALL MOBILE (≤ 480px)
+   ============================================= */
+@media (max-width: 480px) {
+  /* Hero */
+  .hero-badge    { font-size: 0.75rem; padding: 6px 14px; }
+  .hero-actions  { flex-direction: column; }
+  .hero-stats    { gap: 14px; }
+  .stat-num      { font-size: 1.8rem; }
+  .hero-role     { font-size: 0.9rem; }
+
+  /* Filter */
+  .filter-bar { gap: 6px; }
+  .filter-btn { font-size: 0.78rem; padding: 5px 12px; }
+
+  /* About */
+  .about-actions { flex-direction: column; }
+  .avatar-frame  { width: 220px; height: 270px; }
+  .about-chips   { gap: 7px; }
+  .chip          { font-size: 0.75rem; padding: 4px 12px; }
+
+  /* Sections */
+  .section-title  { font-size: 1.8rem; }
+  .section-header { margin-bottom: 36px; }
+
+  /* Contact */
+  .contact-form { padding: 22px; }
+
+  /* Modal */
+  .p-modal__body    { padding: 20px 22px 28px; }
+  .p-modal__actions { flex-direction: column; }
+  .p-modal__img     { height: 180px; }
+
+  /* Back-top */
+  .back-top { bottom: 18px; right: 18px; width: 40px; height: 40px; }
+}
+
+/* =============================================
+   REDUCED MOTION
+   ============================================= */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .glitch::before, .glitch::after { display: none; }
+  .scan-line { display: none; }
+}
